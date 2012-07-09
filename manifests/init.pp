@@ -37,5 +37,12 @@ class oce {
 		cwd => '/tmp/oce/build',
 		command => 'make -j4',
 		timeout => 20000,
+	} ->
+	exec { "make install/strip":
+		cwd => '/tmp/oce/build',
+		command => 'make install/strip',
+	} ->
+	exec { "make test":
+		cwd => '/tmp/oce/build',
 	}
 }
